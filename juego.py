@@ -1,5 +1,5 @@
 import random
-def startGame():
+def start_game():
     number = random.randint(1, 20)
     guess = 0
     attempts = 0
@@ -16,4 +16,4 @@ def startGame():
         else:
             print("Error")
     print("Número de intentos:", attempts)
-startGame()
+start_game()
