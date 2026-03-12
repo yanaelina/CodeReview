@@ -1,7 +1,12 @@
 import random
 def player_guess():
-    guess = int(input("Ingresa tu intento: "))
-    return guess
+    while True:
+        try:
+            guess = int(input("Ingresa tu intento: "))
+            return guess
+        except ValueError:
+            print("Ingresar un número válido")
+    
 
 def evaluate_attempt(guess, number):
     if guess < number:
@@ -24,5 +29,5 @@ def start_game():
         attempts += 1
         evaluate_attempt(guess, number)
     print("Número de intentos:", attempts)
-    
+
 start_game()
