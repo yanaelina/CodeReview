@@ -30,4 +30,16 @@ def start_game():
         evaluate_attempt(guess, number)
     print("Número de intentos:", attempts)
 
-start_game()
+def game_menu():
+    while True:
+        start_game()
+        option = input("\n¿Quiéres jugar de nuevo? (si, no): ")
+        if option == "si":
+            continue
+        elif option == "no":
+            print("Gracias por jugar :)")
+            break
+        else:
+            print("Opción inválida")
+
+game_menu()
