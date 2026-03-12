@@ -23,7 +23,7 @@ def start_game():
     number = random.randint(1, 20)
     guess = 0
     attempts = 0
-    print("Adivina el número entre 1 y 20")
+    print("Bienvenido al juego de adivinar el número.\nEstoy pensando en un número entre el 1 y 20.\nIntenta adivinarlo. Te diré si tu intento es muy alto o muy bajo")
     while guess != number:
         guess = player_guess()
         attempts += 1
