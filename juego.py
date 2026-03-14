@@ -1,16 +1,18 @@
 import random
 
-def player_guess():
+def player_guess() -> int:
     """Solicita un número al usuario y valida que sea un entero."""
     while True:
         try:
             guess = int(input("Ingresa tu intento: "))
-            return guess
+            if 1 <= guess <= 20:
+                return guess
+            print("Ingresa un número entre 1 y 20")
         except ValueError:
             print("Ingresar un número válido")
     
 
-def evaluate_attempt(guess, number):
+def evaluate_attempt(guess: int, number: int) -> None:
     """Verifica si el intento del jugador es menor, mayor o igual al número correcto.
 
     Args:
@@ -21,13 +23,11 @@ def evaluate_attempt(guess, number):
         print("Muy bajo")
     elif guess > number:
         print("Muy alto")
-    elif guess == number:
-        print("¡Correcto!")
     else:
-        print("Error")
+        print("¡Correcto!")
 
 
-def start_game():
+def start_game() -> None:
     """Inicia la partida del juego de adivinar el número."""
     number = random.randint(1, 20)
     guess = 0
@@ -39,11 +39,11 @@ def start_game():
         evaluate_attempt(guess, number)
     print("Número de intentos:", attempts)
 
-def game_menu():
+def game_menu() -> None:
     """Muestra un menú que permite jugar nuevamente o salir."""
     while True:
         start_game()
-        option = input("\n¿Quiéres jugar de nuevo? (si, no): ")
+        option = input("\n¿Quieres jugar de nuevo? (si, no): ").strip().lower()
         if option == "si":
             continue
         elif option == "no":
@@ -52,4 +52,5 @@ def game_menu():
         else:
             print("Opción inválida")
 
-game_menu()
+if __name__ == "__main__":
+    game_menu()
